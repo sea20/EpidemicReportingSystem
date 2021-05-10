@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                   http://www.springframework.org/schema/beans/spring-beans.xsd
+                   http://www.springframework.org/schema/mvc
+                   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                   http://www.springframework.org/schema/context
+                   http://www.springframework.org/schema/context/spring-context.xsd">
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="com.swagger com.controller"/>
+
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- 接口跨域配置 -->
+    <!--<mvc:cors>
+        &lt;!&ndash; allowed-methods="*" &ndash;&gt; &lt;!&ndash; 表示所有请求都有效 &ndash;&gt;
+        <mvc:mapping path="/**" allowed-origins="*"
+                     allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
+                     allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+                     allow-credentials="true" />
+    </mvc:cors>
+-->
+    <!-- 自动扫描swagger配置文件,写入swagger资源路径映射 -->
+    <bean id="swaggerConfig2" class="com.swagger.SwaggerConfig"></bean>
+    <!--文件解析-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        &lt;!&ndash; 最大文件大小，5M为不限制大小 &ndash;&gt;
+        <property name="maxUploadSize" value="20485760"/>
+    </bean>-->
+    <!--重要！配置swagger资源不被拦截-->
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+    <mvc:resources mapping="/webapp/**" location="classpath:/META-INF/resources/webjars/"/>
+    <!--<mvc:resources mapping="/*.html" location="/myTest/"/>-->
+    <!--<mvc:resources mapping="*.html" location="/myTest/"/>-->
+
+    <!--<mvc:resources mapping="/headPicture/*.png" location="/headPicture/"/>
+    <mvc:resources mapping="/*.html" location="/vue/"/>
+    <mvc:resources mapping="/css/*.css" location="/vue/css/"/>
+    <mvc:resources mapping="/js/*.js" location="/vue/js/"/>
+    <mvc:resources mapping="/img/*" location="/vue/img/"/>
+    <mvc:resources mapping="/fonts/*.woff" location="/vue/fonts/"/>
+    <mvc:resources mapping="/fonts/*.ttf" location="/vue/fonts/"/>-->
+    <!--<mvc:default-servlet-handler/>-->
+
+    <bean id="exceptionHandler" class="com.Exception.ExceptionHandler"/>
+    <!--
+    <mvc:interceptors>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/user/cancel"/>
+            <mvc:mapping path="/user/changePetName"/>
+            <mvc:mapping path="/user/getCurrentUser"/>
+            
+            <mvc:mapping path="/question/delete/{qid}"/>
+            <mvc:mapping path="/question/submit"/>
+            <mvc:mapping path="/question/ifSupport/{qId}"/>
+            
+            <mvc:mapping path="/headPicture/change"/>
+
+            <mvc:mapping path="/commentLv1/postCommentLv1"/>
+            <mvc:mapping path="/commentLv1/supportC1/{cId}"/>
+
+            <mvc:mapping path="/commentLv2/postCommentLv2"/>
+
+            <mvc:mapping path="/collection/collectionUser/{qId}"/>
+            <mvc:mapping path="/collection/select"/>
+            <mvc:mapping path="/collection/ifCollection/{qId}"/>
+
+
+            <mvc:mapping path="/care/careUser/{uId}"/>
+            <mvc:mapping path="/care/ifCare/{uId}"/>
+
+
+            <bean class="com.interceptor.LoginStateInterceptor"></bean>
+        </mvc:interceptor>
+
+    </mvc:interceptors>-->
+</beans>
