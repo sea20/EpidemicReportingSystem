@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.InformationServiceMapper">
+    <select id="ifSubmit" resultType="int">
+        select count(*) from information where u_id = #{uId} and create_time = #{date}
+    </select>
+
+    <insert id="submit" parameterType="Information">
+        insert into information(u_id,create_time,temperature,ill,route,position) values
+        (#{uId},#{createTime},#{temperature},#{ill},#{route},#{position})
+    </insert>
+
+</mapper>

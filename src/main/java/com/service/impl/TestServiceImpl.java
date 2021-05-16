@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @Date: 2021/5/10
  */
 @Service
-public class TestServiceIml implements TestService {
+public class TestServiceImpl implements TestService {
     @Autowired
     TestMapper testMapper;
     @Override

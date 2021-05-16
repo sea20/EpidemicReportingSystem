@@ -51,36 +51,13 @@
     <!--<mvc:default-servlet-handler/>-->
 
     <bean id="exceptionHandler" class="com.Exception.ExceptionHandler"/>
-    <!--
+
     <mvc:interceptors>
-
         <mvc:interceptor>
-            <mvc:mapping path="/user/cancel"/>
-            <mvc:mapping path="/user/changePetName"/>
-            <mvc:mapping path="/user/getCurrentUser"/>
-            
-            <mvc:mapping path="/question/delete/{qid}"/>
-            <mvc:mapping path="/question/submit"/>
-            <mvc:mapping path="/question/ifSupport/{qId}"/>
-            
-            <mvc:mapping path="/headPicture/change"/>
-
-            <mvc:mapping path="/commentLv1/postCommentLv1"/>
-            <mvc:mapping path="/commentLv1/supportC1/{cId}"/>
-
-            <mvc:mapping path="/commentLv2/postCommentLv2"/>
-
-            <mvc:mapping path="/collection/collectionUser/{qId}"/>
-            <mvc:mapping path="/collection/select"/>
-            <mvc:mapping path="/collection/ifCollection/{qId}"/>
-
-
-            <mvc:mapping path="/care/careUser/{uId}"/>
-            <mvc:mapping path="/care/ifCare/{uId}"/>
-
-
+            <mvc:mapping path="/information/submit"/>
+            <mvc:mapping path="/information/ifSubmit"/>
             <bean class="com.interceptor.LoginStateInterceptor"></bean>
         </mvc:interceptor>
 
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 </beans>
