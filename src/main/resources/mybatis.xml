@@ -9,6 +9,9 @@
     </settings>
 <typeAliases>
     <typeAlias type="com.bean.Test" alias="Test"/>
+    <typeAlias type="com.bean.User" alias="User"/>
+    <typeAlias type="com.bean.Information" alias="Information"/>
+    <typeAlias type="com.bean.Leave" alias="Leave"/>
 </typeAliases>
 
 </configuration>

@@ -18,7 +18,7 @@ public class Result {
     @ApiModelProperty("附带信息")
     private String message;
     //状态码 400异常 200正常(默认200)  401:未登录
-    @ApiModelProperty("状态码 400异常 200正常(默认200)  401:未登录 402:异常情况 403:没有查到数据" )
+    @ApiModelProperty("状态码 400出错 200正常(默认200)  401:未登录 402:异常情况 403:没有查到数据" )
     private Integer state = 200;
     public Result(String message){
         this.message = message;

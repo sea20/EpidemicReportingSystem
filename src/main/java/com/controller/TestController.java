@@ -32,9 +32,12 @@ public class TestController {
     @GetMapping("/test/getUser/{id}")
     @ApiImplicitParam(name = "id",value = "用户id",paramType = "path",dataType = "int")
     public Result getUser(@PathVariable Integer id){
-        System.out.println("hh");
+
         return testService.getUserById(id);
+
     }
+
+
     @RequestMapping("/")
     public String index(){
         return "index";
