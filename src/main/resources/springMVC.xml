@@ -56,6 +56,18 @@
         <mvc:interceptor>
             <mvc:mapping path="/information/submit"/>
             <mvc:mapping path="/information/ifSubmit"/>
+            <mvc:mapping path="/information/getInformationById/{id}"/>
+
+            <mvc:mapping path="/leave/submit"/>
+            <mvc:mapping path="/getByState/{state}"/>
+            <mvc:mapping path="/deleteById/{id}"/>
+            <mvc:mapping path="/getByType/{type}"/>
+            <mvc:mapping path="/judgeLeave/{type}/{id}"/>
+            <mvc:mapping path="/getLeaveById/{id}"/>
+
+
+            <mvc:mapping path="/user/getUsers/{type}"/>
+
             <bean class="com.interceptor.LoginStateInterceptor"></bean>
         </mvc:interceptor>
 
