@@ -40,11 +40,15 @@ public class TestController {
 
     @RequestMapping("/")
     public String index(){
-        return "indsadasex";
+        return "indsa11dasex";
     }
 
     @RequestMapping("/sadasdsd")
     public String index11(){
-        return "index";
+        return "inde1x";
+    }
+    @RequestMapping("/sada213sdsd")
+    public String index11231(){
+        return "inde1x";
     }
 }
