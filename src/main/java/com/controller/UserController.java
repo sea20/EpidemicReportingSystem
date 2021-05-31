@@ -34,7 +34,6 @@ public class UserController {
     }
 
 
-    //未完成
     @ApiOperation("注册")
     @ResponseBody
     @PostMapping("/regist/{judge}")
