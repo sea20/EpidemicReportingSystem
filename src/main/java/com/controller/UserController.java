@@ -43,9 +43,9 @@ public class UserController {
             @ApiImplicitParam(name = "judge" ,value = "判断是否为管理员用户,如果judge传入的参数为admine则为注册管理员", paramType = "path",dataType = "String")
     })
     public Result regist(@RequestBody User user,@PathVariable String judge){
-        System.out.println(user);
-        System.out.println(judge);
-        return R.Ok();
+        /*System.out.println(user);
+        System.out.println(judge);*/
+        return userService.regist(user,judge);
     }
 
 

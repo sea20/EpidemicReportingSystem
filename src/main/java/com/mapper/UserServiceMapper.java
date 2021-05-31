@@ -13,4 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface UserServiceMapper {
     //登录
     User login(LoginInfor loginInfor);
+    //注册
+    int regist(User user);
 }

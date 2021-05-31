@@ -8,4 +8,8 @@
         select * from user where username = #{username} and password = #{password}
     </select>
 
+    <insert id="regist" parameterType="User">
+        insert into user(username,password,name,sex,type) values(#{username},#{password},#{name},#{sex},#{type})
+    </insert>
+
 </mapper>
