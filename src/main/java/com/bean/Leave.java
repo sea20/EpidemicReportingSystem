@@ -1,14 +1,13 @@
 package com.bean;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
-
 /**
  * @Auther: Maple
  * @Date: 2021/5/16
  */
+
 @ApiModel(description = "外出申请",value = "Leave")
 public class Leave {
     @ApiModelProperty(value = "主键id,会自动生成，不用管他",hidden = true)
@@ -20,25 +19,38 @@ public class Leave {
     @ApiModelProperty(value = "结束时间")
     Date endTime;
     @ApiModelProperty(value = "去哪")
-    String where;
+    String toWhere;
     @ApiModelProperty(value = "去干啥")
-    String action;
+    String actions;
     @ApiModelProperty(value = "请假状态 默认为1 1：审批中 2：已同意 3：不同意" ,example = "1")
     Integer state;
 
-    public int getId() {
+    @Override
+    public String toString() {
+        return "Leave{" +
+                "id=" + id +
+                ", uId=" + uId +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", toWhere='" + toWhere + '\'' +
+                ", actions='" + actions + '\'' +
+                ", state=" + state +
+                '}';
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getuId() {
+    public Integer getuId() {
         return uId;
     }
 
-    public void setuId(int uId) {
+    public void setuId(Integer uId) {
         this.uId = uId;
     }
 
@@ -58,20 +70,20 @@ public class Leave {
         this.endTime = endTime;
     }
 
-    public String getWhere() {
-        return where;
+    public String getToWhere() {
+        return toWhere;
     }
 
-    public void setWhere(String where) {
-        this.where = where;
+    public void setToWhere(String toWhere) {
+        this.toWhere = toWhere;
     }
 
-    public String getAction() {
-        return action;
+    public String getActions() {
+        return actions;
     }
 
-    public void setAction(String action) {
-        this.action = action;
+    public void setActions(String actions) {
+        this.actions = actions;
     }
 
     public Integer getState() {
@@ -80,18 +92,5 @@ public class Leave {
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    @Override
-    public String toString() {
-        return "Leave{" +
-                "id=" + id +
-                ", uId=" + uId +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", where='" + where + '\'' +
-                ", action='" + action + '\'' +
-                ", state=" + state +
-                '}';
     }
 }

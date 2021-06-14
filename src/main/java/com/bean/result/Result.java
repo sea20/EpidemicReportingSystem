@@ -1,10 +1,7 @@
 package com.bean.result;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.util.HashMap;
-
 /**
  * @Auther: Maple
  * @Date: 2021/2/4
@@ -25,14 +22,12 @@ public class Result {
     }
     public Result(){
     }
-
     public Result(Integer state){
         this.state = state;
     }
     public HashMap getData() {
         return data;
     }
-
     public void setData(HashMap data) {
         this.data = data;
     }
@@ -57,11 +52,9 @@ public class Result {
         data.put(key,value);
         return this;
     }
-
     public void remove(String key){
         data.remove(key);
     }
-
     @Override
     public String toString() {
         return "Result{" +

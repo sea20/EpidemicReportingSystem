@@ -4,5 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.LeaveServiceMapper">
 
+    <insert id="submit" parameterType="Leave">
+        insert into `leave`(u_id,start_time,end_time,to_where,actions,state)
+         values (#{uId},#{startTime},#{endTime},#{toWhere},#{actions},#{state})
+    </insert>
+
+    <select id="findByState" resultType="HashMap">
+        select  * from `leave` where state = #{state} and u_id = #{id}
+    </select>
+
 
 </mapper>

@@ -1,21 +1,20 @@
 package com.service.impl;
-
 import com.bean.Information;
-import com.bean.Leave;
 import com.bean.result.Result;
 import com.mapper.InformationServiceMapper;
 import com.service.InformationService;
 import com.utils.result.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
-
 
 /**
  * @Auther: Maple
  * @Date: 2021/5/16
  */
+@Transactional
 @Service
 public class InformationServiceImpl implements InformationService {
     @Autowired
@@ -26,21 +25,20 @@ public class InformationServiceImpl implements InformationService {
         Date date = new Date(new java.util.Date().getTime());
         information.setCreateTime(date);
         Integer submit = null;
-
         try {
             //提交
             submit = informationServiceMapper.submit(information);
         } catch (Exception e) {
-            return R.Error("提交失败");
+            System.out.println(e.toString());
+            System.out.println(332211);
+            return R.Error("提交失败!!!");
         }
-
         if(submit == null || submit == 0){
             return R.Error("提交失败");
         }else {
             return R.Ok();
         }
     }
-
     @Override
     public Result ifSubmit(Integer id) {
         Date date = new Date(new java.util.Date().getTime());

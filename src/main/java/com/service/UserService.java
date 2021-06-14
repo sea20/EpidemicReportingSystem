@@ -11,8 +11,5 @@ import javax.servlet.http.HttpSession;
  * @Date: 2021/5/16
  */
 public interface UserService {
-    //登录
     Result login(LoginInfor loginInfor, HttpSession session);
-    //注册
-    Result regist(User user, String judge);
 }

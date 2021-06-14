@@ -1,5 +1,4 @@
 package com.service.impl;
-
 import com.bean.User;
 import com.bean.information.LoginInfor;
 import com.bean.result.Result;
@@ -15,11 +14,12 @@ import javax.servlet.http.HttpSession;
  * @Auther: Maple
  * @Date: 2021/5/16
  */
+
 @Service
 public class UserServiceImpl implements UserService {
+
     @Autowired
     UserServiceMapper userServiceMapper;
-
     @Override
     public Result login(LoginInfor loginInfor, HttpSession session) {
         User user = userServiceMapper.login(loginInfor);
@@ -32,30 +32,6 @@ public class UserServiceImpl implements UserService {
             System.out.println(user);
             System.out.println(session.getAttribute("user"));
             return R.Ok();
-        }
-    }
-
-    //注册
-    @Override
-    public Result regist(User user, String judge) {
-        if("admine".equals(judge)){
-            //管理员注册
-            user.setType(1);
-        }else {
-            //普通用户注册
-            user.setType(2);
-        }
-        int res = 0;
-        try {
-            res = userServiceMapper.regist(user);
-        } catch (Exception e) {
-            System.out.println(e);
-            return R.Error();
-        }
-        if(res == 1){
-            return R.Ok();
-        }else {
-            return R.Error();
         }
     }
 }

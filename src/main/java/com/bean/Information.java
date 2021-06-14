@@ -1,10 +1,8 @@
 package com.bean;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
-
 /**
  * @Auther: Maple
  * @Date: 2021/5/16

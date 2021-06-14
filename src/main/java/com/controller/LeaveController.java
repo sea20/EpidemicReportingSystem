@@ -1,5 +1,4 @@
 package com.controller;
-
 import com.bean.Leave;
 import com.bean.User;
 import com.bean.result.Result;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-
 /**
  * @Auther: Maple
  * @Date: 2021/5/16
@@ -26,20 +24,21 @@ public class LeaveController {
     @Autowired
     LeaveService leaveService;
 
-    //未完成
+    //已完成
     @ApiOperation("提交外出申请")
     @PostMapping("/submit")
     @ApiImplicitParam(name = "leave",value = "外出报备信息",dataType = "Leave" ,paramType = "body")
     @ResponseBody
     public Result submit(@RequestBody Leave leave, HttpSession session){
         System.out.println(leave);
+        System.out.println(123);
         //通过session获得登录用户的信息
         User user = (User) session.getAttribute("user");
         System.out.println(user);
-        return R.Ok();
+        return leaveService.submit(leave);
     }
 
-    //未完成
+    //已完成，但是一次只能查到一行数据
     @ApiOperation("查看自己提交的外出申请(根据不同状态的)")
     @PostMapping("/getByState/{state}")
     @ApiImplicitParam(name = "state",value = "状态1：未审核 2：已通过 3：已拒绝",dataType = "int" ,paramType = "path")
@@ -49,8 +48,9 @@ public class LeaveController {
         //通过session获得登录用户的信息
         User user = (User) session.getAttribute("user");
         System.out.println(user);
-        return R.Ok().add("data","查询到的信息，可以是一个list");
+        return leaveService.findByState(state,user.getId());
     }
+
 
     //未完成
     @ApiOperation("删除报备信息通过id")
@@ -100,5 +100,7 @@ public class LeaveController {
         System.out.println(id);
         return R.Ok();
     }
+
+
 
 }
