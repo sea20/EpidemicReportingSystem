@@ -49,11 +49,7 @@ public class LeaveServiceImpl implements LeaveService {
         if(byState==null){
             return R.Error("没查到~~~");
         }
-        Result re = new Result();
-        re.setData((HashMap) byState.get(0));
-        re.setState(200);
-        return re;
-
+        return  R.Ok().add("data",byState);
     }
 
 
