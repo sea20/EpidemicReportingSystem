@@ -12,15 +12,15 @@ import java.util.Date;
 public class Leave {
     @ApiModelProperty(value = "主键id,会自动生成，不用管他",hidden = true)
     Integer id;
-    @ApiModelProperty(value = "请假用户id",example = "1")
+    @ApiModelProperty(value = "请假用户id",hidden = true)
     Integer uId;
     @ApiModelProperty(value = "开始时间")
     Date startTime;
     @ApiModelProperty(value = "结束时间")
     Date endTime;
-    @ApiModelProperty(value = "去哪")
+    @ApiModelProperty(value = "去哪",example = "去哪")
     String toWhere;
-    @ApiModelProperty(value = "去干啥")
+    @ApiModelProperty(value = "去干啥",example = "去做什么")
     String actions;
     @ApiModelProperty(value = "请假状态 默认为1 1：审批中 2：已同意 3：不同意" ,example = "1")
     Integer state;

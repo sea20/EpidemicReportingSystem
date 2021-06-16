@@ -19,7 +19,7 @@ public class User {
     String name;
     @ApiModelProperty(value = "性别 男/女", example = "男")
     String sex;
-    @ApiModelProperty(value = "账号类型 1管理员 2 普通用户",hidden = true)
+    @ApiModelProperty(value = "账号类型 1管理员 2 普通用户",example = "2")
     Integer type;
 
     public Integer getType() {

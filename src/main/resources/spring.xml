@@ -45,10 +45,9 @@
 
 
     <!--事务管理器-->
-<!--   <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-<!--        <property name="dataSource" ref="ds"/>-->
-<!--    </bean>-->
+   <!--<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="ds"/>
+    </bean>
 
-<!--    &lt;!&ndash;开启注解配置事务&ndash;&gt;-->
-<!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 </beans>

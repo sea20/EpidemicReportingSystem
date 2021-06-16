@@ -25,7 +25,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             PrintWriter writer = httpServletResponse.getWriter();
-            objectMapper.writeValue(writer,R.Exception().add("data",e));
+            objectMapper.writeValue(writer,R.Exception().add("提示","严重错误，请重试或联系管理员"));
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

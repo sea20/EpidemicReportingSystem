@@ -2,6 +2,7 @@ package com.controller;
 import com.bean.Leave;
 import com.bean.User;
 import com.bean.result.Result;
+import com.mysql.cj.Session;
 import com.service.LeaveService;
 import com.utils.result.R;
 import io.swagger.annotations.Api;
@@ -34,6 +35,7 @@ public class LeaveController {
             System.out.println(123);
             //通过session获得登录用户的信息
             User user = (User) session.getAttribute("user");
+            leave.setuId(user.getId());
             System.out.println(user);
         return leaveService.submit(leave);
     }
@@ -52,31 +54,28 @@ public class LeaveController {
     }
 
 
-    //未完成
+    //已完成
     @ApiOperation("删除报备信息通过id")
     @PostMapping("/deleteById/{id}")
     @ApiImplicitParam(name = "id",value = "报备信息的id",dataType = "int" ,paramType = "path")
     @ResponseBody
     public Result deleteById(@PathVariable Integer id, HttpSession session){
-        System.out.println(id);
-        //通过session获得登录用户的信息
         User user = (User) session.getAttribute("user");
-        System.out.println(user);
-        return R.Ok();
+        return leaveService.deleteById(id,user);
     }
 
-    //未完成
-    @ApiOperation("查看谁提交了外出报备信息按照id降序")
-    @PostMapping("/getByType/{type}")
+    //已完成
+    @ApiOperation("查看谁提交了外出报备信息,以及他提交的外出报备信息的编号按照id降序")
+    @PostMapping("/getUsersByType/{type}")
     @ApiImplicitParam(name = "type",value = "查看的类型1：未审批 2：拒绝 3：同意",dataType = "int" ,paramType = "path")
     @ResponseBody
-    public Result deleteById(@PathVariable Integer type){
+    public Result getLeavesByType(@PathVariable Integer type){
         System.out.println(type);
-        return R.Ok();
+        return leaveService.getUsersByType(type);
     }
 
 
-    //未完成
+    //已完成
     @ApiOperation("审批外出报备信息")
     @PostMapping("/judgeLeave/{type}/{id}")
     @ApiImplicitParams({
@@ -87,20 +86,17 @@ public class LeaveController {
     public Result judgeLeave(@PathVariable Integer type,@PathVariable Integer id){
         System.out.println(type);
         System.out.println(id);
-        return R.Ok();
+        return leaveService.judgeLeave(type,id);
     }
 
 
-    //未完成
+    //已完成
     @ApiOperation("查看详细的外出报备信息")
     @PostMapping("/getLeaveById/{id}")
     @ApiImplicitParam(name = "id",value = "报备信息id",dataType = "int" ,paramType = "path")
     @ResponseBody
     public Result getLeaveById(@PathVariable Integer id){
         System.out.println(id);
-        return R.Ok();
+        return leaveService.getLeaveById(id);
     }
-
-
-
 }

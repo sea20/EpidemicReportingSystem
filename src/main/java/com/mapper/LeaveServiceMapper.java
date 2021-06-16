@@ -1,5 +1,6 @@
 package com.mapper;
 import com.bean.Leave;
+import com.bean.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,16 @@ public interface LeaveServiceMapper {
     Integer submit(Leave leave);
     List<Object> findByState(@Param("state")Integer state, @Param("id")Integer id);
 
+    int deleteById(@Param("id") Integer id,@Param("uId") Integer uId);
+
+    List<User> getUsersById(Integer type);
+
+    int judgeLeave(@Param("type") Integer type, @Param("id") Integer id);
+
+    List<Integer> getLeaveId(@Param("type") Integer type, @Param("uId") Integer id);
+
+
+    List<User> getUsersByType(Integer type);
+
+    Leave getLeaveById(Integer id);
 }

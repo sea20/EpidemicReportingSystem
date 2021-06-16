@@ -45,9 +45,9 @@ public class InformationServiceImpl implements InformationService {
         //是否提交
         Integer size = informationServiceMapper.ifSubmit(id, date);
         if(size == null || size == 0){
-            return R.Ok();
+            return R.Ok("未提交");
         }else {
-            return R.Error("已经提交过了");
+            return R.Ok("已经提交");
         }
     }
 

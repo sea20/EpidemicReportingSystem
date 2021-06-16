@@ -4,12 +4,14 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
 /**
  * @Auther: Maple
  * @Date: 2021/5/10
  */
 @ApiModel(description = "测试")
-public class Test {
+public class Test implements Serializable {
     @ApiModelProperty(value = "名字")
     String name;
     @ApiModelProperty(value = "年龄")

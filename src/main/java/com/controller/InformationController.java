@@ -23,6 +23,8 @@ import java.sql.Date;
 public class InformationController {
     @Autowired
     InformationService informationService;
+
+    //已完成
     @ApiOperation("提交健康信息")
     @ResponseBody
     @PostMapping("/submit")
@@ -34,6 +36,8 @@ public class InformationController {
         information.setuId(user.getId());
         return informationService.submit(information);
     }
+
+    //已完成
     @ApiOperation("自己是否了提交健康信息")
     @ResponseBody
     @PostMapping("/ifSubmit")
@@ -42,7 +46,7 @@ public class InformationController {
         User user = (User) session.getAttribute("user");
         return informationService.ifSubmit(user.getId());
     }
-    //半成品
+    //已完成
     @ApiOperation("查看某人某天填报的具体信息")
     @ResponseBody
     @PostMapping("/getInformationById/{id}")

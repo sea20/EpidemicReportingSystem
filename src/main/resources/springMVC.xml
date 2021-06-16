@@ -56,20 +56,30 @@
         <mvc:interceptor>
             <mvc:mapping path="/information/submit"/>
             <mvc:mapping path="/information/ifSubmit"/>
-            <mvc:mapping path="/information/getInformationById/{id}"/>
-
             <mvc:mapping path="/leave/submit"/>
-            <mvc:mapping path="/getByState/{state}"/>
-            <mvc:mapping path="/deleteById/{id}"/>
-            <mvc:mapping path="/getByType/{type}"/>
-            <mvc:mapping path="/judgeLeave/{type}/{id}"/>
-            <mvc:mapping path="/getLeaveById/{id}"/>
+            <mvc:mapping path="/leave/getByState/{state}"/>
+            <mvc:mapping path="/leave/deleteById/{id}"/>
+            <bean class="com.interceptor.LoginStateInterceptorUser"></bean>
+        </mvc:interceptor>
 
+
+        <mvc:interceptor>
+            <mvc:mapping path="/leave/getLeaveById/{id}"/>
+            <bean class="com.interceptor.LoginStateInterceptor"/>
+        </mvc:interceptor>
+
+
+        <mvc:interceptor>
 
             <mvc:mapping path="/user/getUsers/{type}"/>
+            <mvc:mapping path="/information/getInformationById/{id}"/>
+            <mvc:mapping path="/leave/judgeLeave/{type}/{id}"/>
+            <mvc:mapping path="/leave/getUsersByType/{type}"/>
 
-            <bean class="com.interceptor.LoginStateInterceptor"></bean>
+            <bean class="com.interceptor.LoginStateInterceptorAdmine"/>
         </mvc:interceptor>
+
+
 
     </mvc:interceptors>
 </beans>

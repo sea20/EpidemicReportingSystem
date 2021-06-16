@@ -12,6 +12,11 @@ public class R {
         return new Result(200);
     }
 
+    public static Result Ok(String message){
+        Result result = new Result(200);
+        result.setMessage(message);
+        return result;
+    }
     public static Result Error(String message){
         Result result = new Result(message);
         result.setState(400);
@@ -29,6 +34,11 @@ public class R {
         result.setMessage("请登录");
         return result;
     }
+    public static Result NotLogin(String message){
+        Result result = new Result(401);
+        result.setMessage(message);
+        return result;
+    }
 
     public static Result Exception(){
         Result result = new Result(402);
@@ -38,7 +48,7 @@ public class R {
 
     public static Result Empty(){
         Result result = new Result(403);
-        result.setMessage("空");
+        result.setMessage("未查到数据");
         return result;
     }
 }

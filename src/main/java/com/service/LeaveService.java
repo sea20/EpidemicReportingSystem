@@ -1,6 +1,7 @@
 package com.service;
 
 import com.bean.Leave;
+import com.bean.User;
 import com.bean.result.Result;
 
 /**
@@ -10,4 +11,13 @@ import com.bean.result.Result;
 public interface LeaveService {
     Result submit(Leave leave);
     Result findByState(Integer state,Integer id);
+
+    Result deleteById(Integer id,User user);
+
+
+    Result getUsersByType(Integer type);
+
+    Result judgeLeave(Integer type, Integer id);
+
+    Result getLeaveById(Integer id);
 }

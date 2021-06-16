@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TestMapper {
     Test getUserById(@Param("id") Integer id);
+    Integer updateById(@Param("id") Integer id,@Param("age") Integer age);
 }

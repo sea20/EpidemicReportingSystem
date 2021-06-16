@@ -24,7 +24,7 @@ public class UserController {
 
     @Autowired
     UserService userService;
-
+    //已完成
     @ApiOperation("登录")
     @ResponseBody
     @PostMapping("/login")
@@ -33,33 +33,31 @@ public class UserController {
         return userService.login(loginInfor,session);
     }
 
-
+    //已完成
     @ApiOperation("注册")
     @ResponseBody
-    @PostMapping("/regist/{judge}")
+    @PostMapping("/regist")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user" ,value = "用户注册信息", paramType = "body",dataType = "User"),
-            @ApiImplicitParam(name = "judge" ,value = "判断是否为管理员用户,如果judge传入的参数为admine则为注册管理员", paramType = "path",dataType = "String")
     })
-    public Result regist(@RequestBody User user,@PathVariable String judge){
+    public Result regist(@RequestBody User user){
         System.out.println(user);
-        System.out.println(judge);
-        return R.Ok();
+        return userService.register(user);
     }
 
 
-    //未完成
+    //已完成
     @ApiOperation("查看注册用户哪些人没提交/提交了每日健康信息")
     @ResponseBody
     @PostMapping("/getUsers/{type}")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "type" ,value = "查询类型 1：提交了的 2：未提交的 3:所有的", paramType = "body",dataType = "Information"),
+            @ApiImplicitParam(name = "type" ,value = "查询类型 1：提交了的 2：未提交的",dataType = "int" ,paramType = "path"),
             @ApiImplicitParam(name = "date" ,value = "要查询哪天的 年月日", paramType = "body")
     })
     public Result getUsers(@PathVariable Integer type, @RequestBody Date date){
         System.out.println(type);
         System.out.println(date);
-        return R.Ok().add("data","需要返回的数据");
+        return userService.getUsers(type,date);
     }
 
 

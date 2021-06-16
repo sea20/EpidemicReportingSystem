@@ -10,8 +10,27 @@
     </insert>
 
     <select id="findByState" resultType="HashMap">
-        select  * from `leave` where state = #{state} and u_id = #{id}
+        select  id,u_id from `leave` where state = #{state} and u_id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        delete from `leave` where id = #{id} and u_id = #{uId}
+    </delete>
+
+    <select id="getUsersByType" resultType="User" parameterType="int">
+        select * from user where type = #{type}
+    </select>
+
+    <update id="judgeLeave">
+        update `leave` set state = #{type} where id = #{id}
+    </update>
+
+    <select id="getLeaveId" resultType="int">
+        select id from `leave` where u_id = #{uId} and state = #{type}
     </select>
 
 
+    <select id="getLeaveById" resultType="Leave" parameterType="int">
+        select * from `leave` where id = #{id}
+     </select>
 </mapper>
