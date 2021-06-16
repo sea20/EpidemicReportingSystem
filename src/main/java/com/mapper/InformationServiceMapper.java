@@ -14,4 +14,6 @@ public interface InformationServiceMapper {
     Integer ifSubmit(@Param("uId") Integer uId,@Param("date") Date date);
     //提交
     Integer submit(Information information);
+    //查看提交信息
+    Information getInformationById(@Param("uId")Integer id,@Param("date") Date date);
 }

@@ -30,11 +30,11 @@ public class LeaveController {
     @ApiImplicitParam(name = "leave",value = "外出报备信息",dataType = "Leave" ,paramType = "body")
     @ResponseBody
     public Result submit(@RequestBody Leave leave, HttpSession session){
-        System.out.println(leave);
-        System.out.println(123);
-        //通过session获得登录用户的信息
-        User user = (User) session.getAttribute("user");
-        System.out.println(user);
+            System.out.println(leave);
+            System.out.println(123);
+            //通过session获得登录用户的信息
+            User user = (User) session.getAttribute("user");
+            System.out.println(user);
         return leaveService.submit(leave);
     }
 

@@ -42,7 +42,7 @@ public class InformationController {
         User user = (User) session.getAttribute("user");
         return informationService.ifSubmit(user.getId());
     }
-    //未完成
+    //半成品
     @ApiOperation("查看某人某天填报的具体信息")
     @ResponseBody
     @PostMapping("/getInformationById/{id}")
@@ -53,6 +53,6 @@ public class InformationController {
     public Result getInformationById(@PathVariable Integer id, @RequestBody Date date){
         System.out.println(id);
         System.out.println(date);
-        return R.Ok();
+        return informationService.getInformationById(id,date);
     }
 }

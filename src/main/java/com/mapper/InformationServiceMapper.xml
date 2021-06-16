@@ -12,4 +12,7 @@
         (#{uId},#{createTime},#{temperature},#{ill},#{route},#{position})
     </insert>
 
+    <select id="getInformationById" resultType="Information">
+        select * from information where u_id = #{uId} and create_time = #{date}
+    </select>
 </mapper>

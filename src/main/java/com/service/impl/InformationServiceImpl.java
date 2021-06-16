@@ -50,4 +50,14 @@ public class InformationServiceImpl implements InformationService {
             return R.Error("已经提交过了");
         }
     }
+
+    @Override
+    public Result getInformationById(Integer id, Date date) {
+        Information information = informationServiceMapper.getInformationById(id,date);
+        if(information == null){
+            return R.Error("查询不到信息");
+        }else{
+            return R.Ok().add("data",information);
+        }
+    }
 }
